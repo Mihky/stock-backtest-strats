@@ -4,7 +4,7 @@ public class PolygonApiConstants {
     public static final String POLYGON_BASE_URL = "https://api.polygon.io/";
 
     // Technical Indicator Endpoints
-    public static String GET_TECHNICAL_INDICATOR_ENDPOINT = "/v1/indicators/%s/%s?timespan=%s&window=%s&series_type=%s&limit=%s&apiKey=%s";
+    public static String GET_TECHNICAL_INDICATOR_ENDPOINT = "/v1/indicators/%s/%s?timespan=%s&series_type=%s&limit=%s&apiKey=%s";
 
     // Market Data Endpoints
     /**
