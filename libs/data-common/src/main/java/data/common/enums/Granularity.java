@@ -1,6 +1,5 @@
-package com.mihky.backtest;
+package data.common.enums;
 
-// TODO: I should move this to a common library
 public enum Granularity {
     SECOND("second"),
     MINUTE("minute"),

@@ -1,1 +1,4 @@
 rootProject.name = 'backtest'
+
+include ':data-common'
+project(':data-common').projectDir = new File('../libs/data-common')

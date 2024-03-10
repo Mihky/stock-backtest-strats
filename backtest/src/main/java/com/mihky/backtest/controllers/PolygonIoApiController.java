@@ -1,6 +1,7 @@
 package com.mihky.backtest.controllers;
 
 import com.mihky.backtest.data.PolygonStockResponse;
+import data.common.enums.Granularity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,13 +25,13 @@ public class PolygonIoApiController {
     @GetMapping("/aggregates")
     public PolygonStockResponse getAggregates(
             @RequestParam(value = "stocksTicker") String stocksTicker,
-            @RequestParam(value = "multiplier") String multiplier,
-            @RequestParam(value = "timespan") String timespan,
+            @RequestParam(value = "multiplier") int multiplier,
+            @RequestParam(value = "timespan") Granularity granularity,
             @RequestParam(value = "from") String from,
             @RequestParam(value = "to") String to,
             @RequestParam(value = "apiKey") String apiKey) {
         String apiUrl = POLYGON_BASE_URL + String.format(
-                GET_AGGREGATE_ENDPOINT, stocksTicker, multiplier, timespan, from, to, apiKey);
+                GET_AGGREGATE_ENDPOINT, stocksTicker, multiplier, granularity.name(), from, to, apiKey);
         PolygonStockResponse response = restTemplate.getForObject(apiUrl, PolygonStockResponse.class);
         return response;
     }
