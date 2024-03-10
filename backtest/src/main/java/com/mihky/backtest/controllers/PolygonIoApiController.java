@@ -1,7 +1,6 @@
 package com.mihky.backtest.controllers;
 
 import com.mihky.backtest.data.PolygonStockResponse;
-import data.common.enums.Granularity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,8 +45,8 @@ public class PolygonIoApiController {
         return response;
     }
 
-    @GetMapping("/ping")
+    @GetMapping("/health_check")
     public String getPing() {
-        return "Hi Ping.";
+        return "Hi, I'm healthy..";
     }
 }

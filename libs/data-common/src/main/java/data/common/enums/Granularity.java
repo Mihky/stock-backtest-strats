@@ -11,6 +11,7 @@ public enum Granularity {
     YEAR("year");
 
     private final String name;
+
     Granularity(String name) {
         this.name = name;
     }
