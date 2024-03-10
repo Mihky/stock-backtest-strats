@@ -17,13 +17,13 @@ repositories {
 }
 
 dependencies {
+	implementation project(':data-common')
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations
 	implementation 'com.fasterxml.jackson.core:jackson-annotations:2.16.1'
-
-	implementation project(':data-common')
+	implementation 'org.apache.commons:commons-lang3:3.14.0'
 }
 
 tasks.named('test') {
