@@ -26,21 +26,28 @@ public class PolygonIoApiController {
     public PolygonStockResponse getAggregates(
             @RequestParam(value = "stocksTicker") String stocksTicker,
             @RequestParam(value = "multiplier") int multiplier,
-            @RequestParam(value = "timespan") Granularity granularity,
+            @RequestParam(value = "timespan") String granularity,
             @RequestParam(value = "from") String from,
             @RequestParam(value = "to") String to,
             @RequestParam(value = "apiKey") String apiKey) {
         String apiUrl = POLYGON_BASE_URL + String.format(
-                GET_AGGREGATE_ENDPOINT, stocksTicker, multiplier, granularity.name(), from, to, apiKey);
+                GET_AGGREGATE_ENDPOINT, stocksTicker, multiplier, granularity, from, to, apiKey);
         PolygonStockResponse response = restTemplate.getForObject(apiUrl, PolygonStockResponse.class);
         return response;
     }
 
-    // https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/{date}
+    // https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/{date}?apiKey={apiKey}
     @GetMapping("/grouped")
-    public PolygonStockResponse getGrouped(@RequestParam(value = "date") String date) {
-        String apiUrl = POLYGON_BASE_URL + String.format(GET_GROUPED_DAILY_ENDPOINT, date);
+    public PolygonStockResponse getGrouped(
+            @RequestParam(value = "date") String date,
+            @RequestParam(value = "apiKey") String apiKey) {
+        String apiUrl = POLYGON_BASE_URL + String.format(GET_GROUPED_DAILY_ENDPOINT, date, apiKey);
         PolygonStockResponse response = restTemplate.getForObject(apiUrl, PolygonStockResponse.class);
         return response;
+    }
+
+    @GetMapping("/ping")
+    public String getPing() {
+        return "Hi Ping.";
     }
 }

@@ -15,21 +15,23 @@ import static com.mihky.backtest.utils.PolygonApiConstants.TICKER_KEY;
 
 public class PolygonStockResponse {
     @JsonProperty(TICKER_KEY)
-    private final String ticker;
+    private String ticker;
     @JsonProperty(ADJUSTED_KEY)
-    private final boolean adjusted;
+    private boolean adjusted;
     @JsonProperty(QUERY_COUNT_KEY)
-    private final int queryCount;
+    private int queryCount;
     @JsonProperty(REQUEST_ID_KEY)
-    private final String requestId;
+    private String requestId;
     @JsonProperty(RESULTS_COUNT_KEY)
-    private final int resultsCount;
+    private int resultsCount;
     @JsonProperty(STATUS_KEY)
-    private final String status;
+    private String status;
     @JsonProperty(RESULTS_KEY)
-    private final Collection<PolygonStockData> results;
+    private Collection<PolygonStockData> results;
     @JsonProperty(NEXT_URL_KEY)
-    private final String nextUrl;
+    private String nextUrl;
+
+    public PolygonStockResponse() {}
 
     private PolygonStockResponse(Builder builder) {
         this.ticker = builder.ticker;

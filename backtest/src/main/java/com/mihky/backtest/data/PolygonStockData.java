@@ -14,23 +14,25 @@ import static com.mihky.backtest.utils.PolygonApiConstants.VOLUME_WEIGHTED_AVERA
 
 public class PolygonStockData {
     @JsonProperty(CLOSE_PRICE_KEY)
-    private final double closePrice;
+    private double closePrice;
     @JsonProperty(HIGH_PRICE_KEY)
-    private final double highPrice;
+    private double highPrice;
     @JsonProperty(LOW_PRICE_KEY)
-    private final double lowPrice;
+    private double lowPrice;
     @JsonProperty(NUM_TRANSACTIONS_KEY)
-    private final Integer numTransactions;
+    private Integer numTransactions;
     @JsonProperty(OPEN_PRICE_KEY)
-    private final double openPrice;
+    private double openPrice;
     @JsonProperty(OTC_TICKER_KEY)
-    private final Boolean isOTC;
+    private Boolean isOTC;
     @JsonProperty(TIMESTAMP_KEY)
-    private final int timestamp;
+    private long timestamp;
     @JsonProperty(TRADING_VOLUME_KEY)
-    private final double tradingVolume;
+    private double tradingVolume;
     @JsonProperty(VOLUME_WEIGHTED_AVERAGE_PRICE_KEY)
-    private final Double volumeWeightedAvgPrice;
+    private Double volumeWeightedAvgPrice;
+
+    public PolygonStockData() {}
 
     private PolygonStockData(Builder builder) {
         this.closePrice = builder.closePrice;
@@ -72,7 +74,7 @@ public class PolygonStockData {
         return isOTC;
     }
 
-    public int getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
@@ -91,7 +93,7 @@ public class PolygonStockData {
         private Integer numTransactions;
         private double openPrice;
         private Boolean isOTC;
-        private int timestamp;
+        private long timestamp;
         private double tradingVolume;
         private Double volumeWeightedAvgPrice;
 
@@ -125,7 +127,7 @@ public class PolygonStockData {
             return this;
         }
 
-        public Builder withTimestamp(int timestamp) {
+        public Builder withTimestamp(long timestamp) {
             this.timestamp = timestamp;
             return this;
         }
