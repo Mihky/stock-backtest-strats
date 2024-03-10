@@ -77,9 +77,4 @@ public class PolygonIoApiController {
 
         return tickerResponses;
     }
-
-    @GetMapping("/health_check")
-    public String getPing() {
-        return "Hi, I'm healthy..";
-    }
 }
